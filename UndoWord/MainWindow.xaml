@@ -12,8 +12,10 @@
     <StackPanel Margin="0 50 0 50" VerticalAlignment="Center">
         <TextBlock Text="{Binding CurrentWord}" Margin="10" FontSize="36" TextAlignment="Center" Background="#FFDDDDDD"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-        <Button Content="New" Command="{Binding NewWord}" Margin="10 0 10 10" Padding="5" MinWidth="75"/>
-        <Button Content="Undo" Command="{Binding Undo}" Margin="0 0 10 10" Padding="5" MinWidth="75"/>
+            <TextBox Text="{Binding WordLength}" IsEnabled="{Binding IsNotRandom}" Margin="10 0 0 10" MinWidth="30" TextAlignment="Center" FontSize="18" MaxLength="2"/>
+            <Button Content="New" Command="{Binding NewWord}" Margin="10 0 10 10" Padding="5" MinWidth="75"/>
+            <Button Content="Undo" Command="{Binding Undo}" Margin="0 0 10 10" Padding="5" MinWidth="75"/>
         </StackPanel>
+        <CheckBox IsChecked="{Binding IsRandom}" Content="Random length" HorizontalAlignment="Center"/>
     </StackPanel>
 </Window>

@@ -7,6 +7,10 @@ namespace UndoWord
         Model model;
 
         public string CurrentWord { get => model.CurrentWord; }
+        public int WordLength { get => model.WordLength; set => model.WordLength = value; }
+        public bool IsRandom { get => model.IsRandom; set => model.IsRandom = value; }
+        public bool IsNotRandom { get => !model.IsRandom;}
+
         public Command NewWord { get; set; }
         public Command Undo { get; set; }
 
@@ -23,6 +27,7 @@ namespace UndoWord
                 () => model.CanUndo);
 
             model.CurrentWordChanged += (o, e) => OnPropertyChanged("CurrentWord");
+            model.IsRandomChanged += (o, e) => OnPropertyChanged("IsNotRandom");
         }
     }
 }
